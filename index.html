@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link src="assets/css/style.css" type="text/css" rel="stylesheet">
-    <link src="assets/javascript/game.js" type="text/javascript" rel="stylesheet">
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 </head>
 
 <body>
     <!-- Image and text -->
-    <nav class="navbar navbar-light bg-light text-center">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-center">
         <h1>
-            <img src="assets/images/icons8-crystal-ball-64.png" width="30" height="30" class="d-inline-block align-center"
-                alt="crystal ball">
+            <img src="assets/images/icons8-crystal-ball-64.png" width="30" height="30"
+                class="d-inline-block align-center" alt="crystal ball">
             <strong>The Psychic Game</strong>
         </h1>
     </nav>
 
+
+    <div class="container border border-primary rounded">
+            <h3 class="text-center">Guess what letter I'm thinking of</h3>
+            <h4 class="text-center">Press any key to begin!</h4>
+            <div id="wins"></div>
+            <div id="losses"></div>
+            <div id="guesses-left"></div>
+            <div id="current-guesses"></div>
+    </div>
+
+
+
 </body>
 
 </html>
-
-
-<div class="container">
-    <h3 class="text-center" id="title">Guess what letter I'm thinking of</h3>
-    <div id="wins"></div>
-    <div id="losses"></div>
-    <div id="guesses-left"></div>
-    <div id="current-guesses"></div>
-</div>
