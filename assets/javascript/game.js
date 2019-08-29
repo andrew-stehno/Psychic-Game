@@ -12,8 +12,8 @@
 //1. CHoosing a random number between two charCodes which represent the alphabet
 
 //Generate an array of all letters in the alphabet
-    //More copmuter sciency way -- we can generate an array of all letters with a functoin
-    //easier we can also write it by hand
+//More copmuter sciency way -- we can generate an array of all letters with a functoin
+//easier we can also write it by hand
 // variables go here:
 
 var wins = 0;
@@ -21,7 +21,7 @@ var losses = 0;
 var guessesLeft = 10;
 var guessesSoFar = [];
 var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-var randomNumber = Math.floor((Math.random() * alphabet.length)); 
+var randomNumber = Math.floor((Math.random() * alphabet.length));
 console.log("Random number " + randomNumber)
 var computerGuess = alphabet[randomNumber]
 
@@ -31,8 +31,8 @@ document.onkeyup = function (event) {
     console.log("User guess " + userGuess);
     //Is th user key actually a letter
     if (alphabet.indexOf(userGuess.toLowerCase()) > -1) {
-        
-    
+
+
         if (computerGuess === userGuess.toLowerCase()) {
             wins++;
             console.log(wins);
@@ -40,11 +40,14 @@ document.onkeyup = function (event) {
             console.log(guessesLeft);
             guessesSoFar = [];
             computerGuess = alphabet[Math.floor((Math.random() * alphabet.length))];
-        } 
+        }
         else {
             guessesLeft--
-            guessesSoFar = [userGuess];
+            function guessFunc() {
+                guessesSoFar.push(userGuess);    
+                document.getElementById("current-guesses").innerHTML = guessesSoFar;
             console.log(guessesSoFar);
+        }   guessFunc();
         }
 
         if (guessesLeft === 0) {
@@ -53,30 +56,26 @@ document.onkeyup = function (event) {
 
         //After all this stuff we want to update all these values in the DOM :)
         function updateDom() {
-            var wins_1 = document.createElement("h5");
-            wins_1.innerHTML = "Wins: " + wins;
-            document.getElementById("wins").appendChild(wins_1);
-            
-            var losses_1 = document.createElement("h5");
-            losses_1.innerHTML = "Losses: " + losses;
-            document.getElementById("losses").appendChild(losses_1);
+            var wins_1 = document.querySelector("#wins");
+            wins_1.innerHTML = wins;
 
-            var guess_left = document.createElement("h5");
-            guess_left.innerHTML = "Guesses Left: " + guessesLeft; 
-            document.getElementById("guesses-left").appendChild(guess_left);
+            var losses_1 = document.querySelector("#losses");
+            losses_1.innerHTML = losses;
 
-            var yourGuesses = document.createElement("h5");
-            yourGuesses.innerHTML = "Guesses So Far " + guessesSoFar.push(userGuess);
-            document.getElementById("current-guesses").appendChild(yourGuesses);
+            var guess_left = document.querySelector("#guesses-left");
+            guess_left.innerHTML = guessesLeft;
+
+            var yourGuesses = document.querySelector("#current-guesses");
+            yourGuesses.innerHTML = guessesSoFar;
+
         }
         updateDom(); 
             
-      /*  else {
-        alert("Input not valid, please enter a letter.")
-        }
-        */
-    }
-    //if so proceed
+       /* else {
+            alert("Input not valid, please enter a letter.")
+        }*/
+
+        //if so proceed
         //is valid letter equal to computer guess
         //if yes user wins (increase wins) -- restart game
         //if no (decrement guesssleft)
@@ -84,7 +83,8 @@ document.onkeyup = function (event) {
         //if yes increment losses
         //if no do nothing 
 
-    //We will need to update DOM some where
+        //We will need to update DOM some where
 
-    //if not send failure to user
+        //if not send failure to user
+    }
 }
