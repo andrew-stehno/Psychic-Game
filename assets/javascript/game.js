@@ -52,10 +52,10 @@ document.onkeyup = function (event) {
             yourGuesses.innerHTML = guessesSoFar;
         }
         updateDom(); 
-     /*       
+    }
+                        
     else {
         alert("Input not valid, please enter a letter.");
-    } */
+    } 
 
-    }
 }
